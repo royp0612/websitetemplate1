@@ -73,12 +73,12 @@
             </div>
         </div>
     </header>
-    <main id = "services" class = "hidden">
-        <p>WHAT WE OFFER</p>
-        <h3>Exterior Cleaning Services</h3>
+    <main id = "services" class = "hidden services-reveal">
+        <p class="services-heading services-heading-label">WHAT WE OFFER</p>
+        <h3 class="services-heading services-heading-title">Exterior Cleaning Services</h3>
         <div class = "card-container">
             <div class = "main-container">
-                <div class = "card">
+                <div class = "card card-stagger-1">
                     <div class = "front">
                         <div class="card-front-inner">
                             <img class="card-img" src="images/card1.jpg" alt="House washing">
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class = "main-container">
-                <div class = "card">
+                <div class = "card card-stagger-2">
                     <div class = "front">
                         <div class="card-front-inner">
                             <img class="card-img" src="images/card2.jpg" alt="House washing">
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class = "main-container">
-                <div class = "card">
+                <div class = "card card-stagger-3">
                     <div class = "front">
                         <div class="card-front-inner">
                             <img class="card-img" src="images/card3.jpg" alt="House washing">
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class = "main-container">
-                <div class = "card">
+                <div class = "card card-stagger-4">
                     <div class = "front">
                         <div class="card-front-inner">
                             <img class="card-img" src="images/card4.jpg" alt="House washing">
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <div class = "main-container">
-                <div class = "card">
+                <div class = "card card-stagger-5">
                     <div class = "front">
                         <div class="card-front-inner">
                             <img class="card-img" src="images/card5.jpg" alt="House washing">
@@ -148,7 +148,7 @@
                 </div>
             </div>
             <div class = "main-container">
-                <div class = "card">
+                <div class = "card card-stagger-6">
                     <div class = "front">
                         <div class="card-front-inner">
                             <img class="card-img" src="images/card6.webp" alt="House washing">
@@ -166,14 +166,14 @@
         
         
         
-    </main>    <section id="about" class="about-section">
+    </main>    <section id="about" class="about-section hidden reveal-left">
         <div class="about-inner">
             <p>ABOUT US</p>
             <h3>Why choose our service</h3>
             <p class="about-copy">We provide safe, reliable exterior cleaning with a focus on detail, trust, and customer satisfaction.</p>
         </div>
     </section>
-    <section id="testimonials" class="testimonials-section">
+    <section id="reviews" class="testimonials-section hidden reveal-fade">
         <div class="testimonials-inner">
             <div class="testimonial-card">
                 <div class="testimonial-card-header">
@@ -247,6 +247,64 @@
                 View our Google Maps listing
             </a>
         </div>
+    </section>
+    <section id="contact" class="free-quote hidden reveal-fade">
+        <div class="free-quote-copy">
+            <h3>Get a Free</h3>
+            <h3 class="free-quote-lower">Quote Today</h3>
+            <p>Fill out the form and we will reach out with pricing and next steps.</p>
+            <div class = "icon">
+                <div class="quote-icon" aria-hidden="true">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <p class = "quote-icon-text">Toronto, Canada</p>
+            </div>
+            <div class = "icon">
+                <div class="quote-icon" aria-hidden="true">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <p class = "quote-icon-text">+1 (555) 123-4567</p>
+            </div>
+            <div class = "icon">
+                <div class="quote-icon" aria-hidden="true">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <p class = "quote-icon-text">cleaningservices@gmail.com</p>
+            </div>
+            <div class = "icon">
+                <div class="quote-icon" aria-hidden="true">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <p class = "quote-icon-text">Fully Insured</p>
+            </div>
+            
+        </div>
+        <form class="quote-form" action="#" method="post">
+            <label for="quote-name">Full Name</label>
+            <input id="quote-name" name="name" type="text" placeholder="Your name" required>
+
+            <label for="quote-email">Email</label>
+            <input id="quote-email" name="email" type="email" placeholder="you@example.com" required>
+
+            <label for="quote-phone">Phone</label>
+            <input id="quote-phone" name="phone" type="tel" placeholder="(555) 123-4567" required>
+
+            <label for="quote-service">Service Needed</label>
+            <select id="quote-service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="house-washing">House Washing</option>
+                <option value="window-cleaning">Window Cleaning</option>
+                <option value="driveway-cleaning">Driveway Cleaning</option>
+                <option value="deck-patio">Deck & Patio Wash</option>
+                <option value="gutter-clearing">Gutter Clearing</option>
+                <option value="roof-rinse">Roof Rinse</option>
+            </select>
+
+            <label for="quote-details">Project Details</label>
+            <textarea id="quote-details" name="details" rows="4" placeholder="Tell us about your property and what you need cleaned."></textarea>
+
+            <button type="submit" class="quote-submit">Request Free Quote</button>
+        </form>
     </section>
     <script src="script.js"></script>
 </body>
