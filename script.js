@@ -1,21 +1,46 @@
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(
+  (entries, obs) => {
     entries.forEach((entry) => {
-        console.log(entry);
+      if (!entry.isIntersecting) {
+        return;
+      }
 
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
-        }
+      // Reveal once, then stop observing to avoid repeated animation work.
+      entry.target.classList.add('show');
+      obs.unobserve(entry.target);
     });
-});
+  },
+  {
+    threshold: 0.15,
+    rootMargin: '0px 0px -10% 0px',
+  }
+);
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
 const cards = document.querySelectorAll('.card');
+
+function setCardFaceState(card, isFlipped) {
+  const front = card.querySelector('.front');
+  const back = card.querySelector('.back');
+
+  if (!front || !back) {
+    return;
+  }
+
+  front.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+  front.style.opacity = isFlipped ? '0' : '1';
+  back.style.transform = isFlipped ? 'rotateY(0deg)' : 'rotateY(-180deg)';
+  back.style.opacity = isFlipped ? '1' : '0';
+}
+
 cards.forEach((card) => {
+  setCardFaceState(card, false);
+
   card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
+    const isFlipped = !card.classList.contains('flipped');
+    card.classList.toggle('flipped', isFlipped);
+    setCardFaceState(card, isFlipped);
   });
 });
